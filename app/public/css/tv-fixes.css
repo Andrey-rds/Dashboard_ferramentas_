@@ -1,0 +1,162 @@
+/* Final TV layout overrides: fixed viewport, animated service lines, no scrolling. */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+body {
+  padding: 16px;
+}
+
+.dashboard-grid {
+  height: calc(100dvh - 144px);
+  overflow: hidden !important;
+  grid-template-rows: 230px minmax(0, 1fr);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  overflow: hidden !important;
+}
+
+.service-card {
+  min-width: 0;
+  min-height: 0;
+  padding: 10px;
+  gap: 6px;
+}
+
+.sparkline {
+  display: block !important;
+  flex: 0 0 36px;
+  width: 100%;
+  height: 36px;
+  margin-top: 2px;
+}
+
+.operations-area {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.operations-content {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.5fr) minmax(420px, 1fr) !important;
+  overflow: hidden;
+}
+
+.incident-panel,
+.incident-table-wrap {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden !important;
+}
+
+.incident-table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+}
+
+.incident-table th:nth-child(1) { width: 20%; }
+.incident-table th:nth-child(2) { width: 15%; }
+.incident-table th:nth-child(3) { width: 27%; }
+.incident-table th:nth-child(4) { width: 38%; }
+
+.incident-table td {
+  overflow-wrap: anywhere;
+}
+
+.incident-count span {
+  font-size: clamp(15px, 1.1vw, 21px);
+}
+
+.incident-count strong {
+  font-size: clamp(27px, 2.1vw, 40px);
+}
+
+.support-panels {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.chart-panel,
+.logs-panel {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.log-feed {
+  overflow: hidden !important;
+}
+
+.metric { min-height: 58px; }
+
+@media (max-width: 900px) {
+  body {
+    padding: 8px;
+  }
+
+  .topbar {
+    min-height: 68px;
+    height: 68px;
+    padding: 7px 10px;
+  }
+
+  .brand-block h1 { font-size: 15px; }
+  .brand-block p { font-size: 8px; }
+  .top-meta { gap: 5px; }
+  .system-status { padding: 5px; font-size: 8px; }
+  .meta-stat small { font-size: 7px; }
+  .meta-stat strong { font-size: 12px; }
+
+  .dashboard-grid {
+    height: calc(100dvh - 92px);
+    margin-top: 8px;
+    grid-template-rows: 190px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .service-grid { gap: 5px; }
+  .service-card { padding: 7px; gap: 5px; }
+  .service-icon { flex-basis: 27px; width: 27px; height: 27px; font-size: 14px; }
+  .service-name h2 { font-size: 12px; }
+  .service-name p { font-size: 7px; }
+  .health-badge { padding: 3px; font-size: 7px; }
+  .metric-grid { gap: 3px; margin-top: 2px; }
+  .metric { min-height: 44px; padding: 4px; }
+  .metric small { font-size: 7px; }
+  .metric strong { font-size: 12px; }
+  .metric:last-child strong { font-size: 10px; }
+  .sparkline { flex-basis: 25px; height: 25px; }
+  .service-footer { padding-top: 3px; font-size: 7px; }
+  .service-footer b { font-size: 8px; }
+
+  .operations-area { grid-template-rows: 30px 44px minmax(0, 1fr); gap: 5px; }
+  .operations-heading h2 { font-size: 16px; }
+  .operations-heading > span { font-size: 8px; }
+  .incident-counts { gap: 4px; }
+  .incident-count { padding: 3px 7px; }
+  .incident-count span { font-size: 9px; }
+  .incident-count strong { font-size: 17px; }
+  .operations-content { grid-template-columns: minmax(0, 1.3fr) minmax(240px, 1fr) !important; gap: 6px; }
+  .incident-table th { padding: 5px; font-size: 8px; }
+  .incident-table td { padding: 5px; font-size: 9px; }
+  .incident-severity { gap: 3px; font-size: 8px; }
+  .incident-time { font-size: 8px !important; }
+  .incident-source strong { font-size: 8px; }
+  .incident-source span { font-size: 8px; }
+  .incident-description { font-size: 9px !important; }
+  .support-panels { grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); gap: 5px; }
+  .chart-panel,.logs-panel { padding: 5px; }
+  .panel-heading { min-height: 20px; font-size: 7px; }
+  .panel-heading h3 { font-size: 9px; }
+  .log-feed { gap: 3px; padding: 3px 0; font-size: 7px; }
+  .log-line { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 2px; }
+  .log-summary { font-size: 6px; }
+}

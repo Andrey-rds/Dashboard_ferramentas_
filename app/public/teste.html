@@ -8,6 +8,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/teste.css">
+  <link rel="stylesheet" href="css/tv-readable.css">
+  <link rel="stylesheet" href="css/tv-fixes.css">
 </head>
 <body>
   <header class="grafana-card topbar">
@@ -28,17 +30,39 @@
 
   <main class="dashboard-grid">
     <section id="service-grid" class="service-grid" aria-label="Status das ferramentas"></section>
-    <footer class="bottom-grid">
-      <section class="grafana-card chart-panel">
-        <div class="panel-heading"><h2><i class="fa-solid fa-chart-area"></i> HISTÓRICO DE RESPONSIVIDADE COMBINADO (MS)</h2><span>INTERVALO DE ATUALIZAÇÃO: <b id="refresh-interval">3S</b></span></div>
-        <div class="combined-chart-wrap"><canvas id="chart-combined"></canvas></div>
-      </section>
-      <section class="grafana-card logs-panel">
-        <div class="panel-heading"><h2><i class="fa-solid fa-terminal"></i> TELEMETRIA DE LOGS</h2><i class="fa-solid fa-circle live-dot"></i></div>
-        <div id="log-feed" class="log-feed"></div>
-        <div id="log-summary" class="log-summary">NENHUM ERRO REGISTRADO NOS ÚLTIMOS 1.440 MIN</div>
-      </section>
-    </footer>
+    <section class="operations-area" aria-label="Operações e incidentes">
+      <div class="operations-heading">
+        <h2><i class="fa-solid fa-triangle-exclamation"></i> OPERAÇÕES / INCIDENTES</h2>
+        <span id="incident-updated">HISTÓRICO DE INCIDENTES</span>
+      </div>
+      <div class="incident-counts" aria-label="Resumo dos incidentes">
+        <div class="incident-count count-ok"><span>ESTÁVEL</span><strong id="count-ok">0</strong></div>
+        <div class="incident-count count-warning"><span>ALERTA</span><strong id="count-warning">0</strong></div>
+        <div class="incident-count count-critical"><span>CRÍTICO</span><strong id="count-critical">0</strong></div>
+      </div>
+      <div class="operations-content">
+        <section class="incident-panel" aria-label="Lista de incidentes">
+          <div class="incident-table-wrap">
+            <table class="incident-table">
+              <thead><tr><th>SEVERIDADE</th><th>HORA</th><th>FERRAMENTA / CÓDIGO</th><th>DESCRIÇÃO DO PROBLEMA</th></tr></thead>
+              <tbody id="incident-list"></tbody>
+            </table>
+          </div>
+          <div id="incident-empty" class="incident-empty" hidden><i class="fa-solid fa-circle-check"></i><strong>NENHUM INCIDENTE ATIVO</strong><span>TODAS AS FERRAMENTAS ESTÃO OPERACIONAIS</span></div>
+        </section>
+        <aside class="support-panels">
+          <section class="grafana-card chart-panel">
+            <div class="panel-heading"><h3><i class="fa-solid fa-chart-area"></i> HISTÓRICO DE LATÊNCIA (MS)</h3><span>ATUALIZAÇÃO <b id="refresh-interval">3S</b></span></div>
+            <div class="combined-chart-wrap"><canvas id="chart-combined"></canvas></div>
+          </section>
+          <section class="grafana-card logs-panel">
+            <div class="panel-heading"><h3><i class="fa-solid fa-terminal"></i> TELEMETRIA AO VIVO</h3><i class="fa-solid fa-circle live-dot"></i></div>
+            <div id="log-feed" class="log-feed"></div>
+            <div id="log-summary" class="log-summary"></div>
+          </section>
+        </aside>
+      </div>
+    </section>
   </main>
   <script src="js/teste.js"></script>
 </body>

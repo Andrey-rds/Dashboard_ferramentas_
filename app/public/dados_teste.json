@@ -2,18 +2,26 @@
   "cabecalho": { "titulo": "NOC OPERATIONS CENTER", "versao": "V2.4", "subtitulo": "MONITORAMENTO CONTÍNUO DE INFRAESTRUTURA E ECOSSISTEMA DIGITAL", "status": "SISTEMAS OPERACIONAIS (100%)", "taxaResposta": "99.98%", "cargaGlobal": "14.2 REQ/S" },
   "atualizacao": { "intervalo": "3S", "intervaloMs": 3000 },
   "ferramentas": [
-    { "id":"n8n", "nome":"N8N", "descricao":"WORKFLOWS & AUTOMATIONS", "status":"ONLINE", "latencia":38, "variacao":5, "metricaRotulo":"EXECUÇÕES/M", "metricaValor":"142", "uptime":"99.95%", "rodape":"HTTP 200", "cor":"#f43f5e", "corSecundaria":"#fb7185", "historico":[35,42,38,40,36,45,38,39,41,38], "historicoCombinado":[38,40,35,42,39,37,38] },
-    { "id":"elevenlabs", "nome":"ELEVENLABS", "descricao":"AI VOICE SYNTHESIS", "status":"ONLINE", "latencia":165, "variacao":15, "metricaRotulo":"QUOTA API", "metricaValor":"88% FREE", "uptime":"99.89%", "rodape":"TTS READY", "cor":"#a855f7", "corSecundaria":"#c084fc", "historico":[160,175,162,180,165,170,158,165,172,165], "historicoCombinado":[165,170,160,175,168,162,165] },
-    { "id":"supabase", "nome":"SUPABASE", "descricao":"DATABASE & AUTH", "status":"ONLINE", "latencia":24, "variacao":3, "metricaRotulo":"CONEXÕES", "metricaValor":"18 / 100", "uptime":"100%", "rodape":"POSTGRESQL", "cor":"#10b981", "corSecundaria":"#34d399", "historico":[22,25,24,28,23,22,26,24,23,24], "historicoCombinado":[24,26,22,25,23,24,24] },
-    { "id":"insidetv", "nome":"INSIDETV", "descricao":"MÍDIA / PLAYER STREAMING", "status":"ONLINE", "latencia":62, "variacao":8, "metricaRotulo":"BITRATE", "metricaValor":"12.4 MBPS", "uptime":"99.92%", "rodape":"STREAM ACTIVE", "cor":"#3b82f6", "corSecundaria":"#60a5fa", "historico":[60,65,58,70,62,64,61,66,63,62], "historicoCombinado":[62,64,60,68,63,61,62] },
-    { "id":"openai", "nome":"CHATGPT / OPENAI", "descricao":"LLM & PROCESSING", "status":"ONLINE", "latencia":210, "variacao":20, "metricaRotulo":"MODELO", "metricaValor":"GPT-4O", "uptime":"99.78%", "rodape":"V1/MODELS OK", "cor":"#14b8a6", "corSecundaria":"#2dd4bf", "historico":[200,220,205,230,215,210,225,208,212,210], "historicoCombinado":[210,225,205,230,215,208,210] }
+    { "id":"n8n", "nome":"N8N", "descricao":"WORKFLOWS & AUTOMATIONS", "status":"ONLINE", "nivelSaude":"ok", "latencia":38, "variacao":5, "metricaRotulo":"EXECUÇÕES/M", "metricaValor":"142", "uptime":"99.95%", "rodape":"HTTP 200", "cor":"#6C5CE7", "corSecundaria":"#00D2FF", "historico":[35,42,38,40,36,45,38,39,41,38], "historicoCombinado":[38,40,35,42,39,37,38] },
+    { "id":"elevenlabs", "nome":"ELEVENLABS", "descricao":"AI VOICE SYNTHESIS", "status":"ONLINE", "nivelSaude":"ok", "latencia":165, "variacao":15, "metricaRotulo":"QUOTA API", "metricaValor":"88% FREE", "uptime":"99.89%", "rodape":"TTS READY", "cor":"#00D2FF", "corSecundaria":"#6C5CE7", "historico":[160,175,162,180,165,170,158,165,172,165], "historicoCombinado":[165,170,160,175,168,162,165] },
+    { "id":"supabase", "nome":"SUPABASE", "descricao":"DATABASE & AUTH", "status":"ONLINE", "nivelSaude":"ok", "latencia":24, "variacao":3, "metricaRotulo":"CONEXÕES", "metricaValor":"18 / 100", "uptime":"100%", "rodape":"POSTGRESQL", "cor":"#F4F5F7", "corSecundaria":"#00D2FF", "historico":[22,25,24,28,23,22,26,24,23,24], "historicoCombinado":[24,26,22,25,23,24,24] },
+    { "id":"insidetv", "nome":"INSIDETV", "descricao":"MÍDIA / PLAYER STREAMING", "status":"ONLINE", "nivelSaude":"ok", "latencia":62, "variacao":8, "metricaRotulo":"BITRATE", "metricaValor":"12.4 MBPS", "uptime":"99.92%", "rodape":"STREAM ACTIVE", "cor":"#8B7CFF", "corSecundaria":"#00D2FF", "historico":[60,65,58,70,62,64,61,66,63,62], "historicoCombinado":[62,64,60,68,63,61,62] },
+    { "id":"openai", "nome":"CHATGPT / OPENAI", "descricao":"LLM & PROCESSING", "status":"ONLINE", "nivelSaude":"ok", "latencia":210, "variacao":20, "metricaRotulo":"MODELO", "metricaValor":"GPT-4O", "uptime":"99.78%", "rodape":"V1/MODELS OK", "cor":"#62E6FF", "corSecundaria":"#6C5CE7", "historico":[200,220,205,230,215,210,225,208,212,210], "historicoCombinado":[210,225,205,230,215,208,210] }
+  ],
+  "incidentes": [
+    { "nivel":"critico", "hora":"17:42:16", "ferramenta":"CHATGPT / OPENAI", "codigo":"HTTP 429", "descricao":"LIMITE DE REQUISIÇÕES DA API ATINGIDO. NOVAS SOLICITAÇÕES FORAM RECUSADAS.", "acao":"VERIFICAR A COTA DO PROJETO E AUMENTAR O LIMITE OU APLICAR RETENTATIVAS COM BACKOFF." },
+    { "nivel":"alerta", "hora":"17:39:04", "ferramenta":"ELEVENLABS", "codigo":"QUOTA 12%", "descricao":"SALDO DE CRÉDITOS DE VOZ ABAIXO DO LIMITE DE ATENÇÃO CONFIGURADO.", "acao":"ACOMPANHAR O CONSUMO E PROGRAMAR A RECARGA DA CONTA." },
+    { "nivel":"critico", "hora":"17:31:48", "ferramenta":"INSIDETV", "codigo":"BUFFER 8.2S", "descricao":"BUFFER DE STREAMING ACIMA DO NORMAL. HÁ RISCO DE INTERRUPÇÃO NA EXIBIÇÃO.", "acao":"CONFERIR REDE, BITRATE DE ORIGEM E FILA DO PLAYER." },
+    { "nivel":"alerta", "hora":"17:18:22", "ferramenta":"N8N", "codigo":"HTTP 503", "descricao":"UM WORKFLOW DE PUBLICAÇÃO FICOU TEMPORARIAMENTE INDISPONÍVEL.", "acao":"REVISAR A EXECUÇÃO COM FALHA E REPROCESSAR APÓS VALIDAR AS DEPENDÊNCIAS." }
   ],
   "grafico": { "labels": ["17:50","17:51","17:52","17:53","17:54","17:55","17:56"] },
   "logs": [
     { "hora":"17:56:02", "servico":"N8N /HEALTHZ", "resultado":"200 OK (38MS)" },
     { "hora":"17:56:03", "servico":"SUPABASE DB PING", "resultado":"200 OK (24MS)" },
     { "hora":"17:56:04", "servico":"ELEVENLABS TTS API", "resultado":"200 OK (165MS)" },
-    { "hora":"17:56:05", "servico":"CHATGPT V1/MODELS", "resultado":"200 OK (210MS)" }
+    { "hora":"17:56:05", "servico":"CHATGPT V1/MODELS", "resultado":"200 OK (210MS)" },
+    { "hora":"17:56:06", "servico":"INSIDETV STREAM", "resultado":"200 OK (62MS)" },
+    { "hora":"17:56:07", "servico":"N8N EXECUTIONS", "resultado":"200 OK (38MS)" }
   ],
   "resumoLogs":"NENHUM ERRO REGISTRADO NOS ÚLTIMOS 1.440 MIN"
 }
